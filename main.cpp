@@ -6,10 +6,10 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    Dialog w;
-    w.show();
+    //Dialog w;
+    //w.show();
 
-//    XColorDialog *dialog = new XColorDialog;
-//    dialog->show();
+    XColorDialog *dialog = new XColorDialog;
+    dialog->show();
     return a.exec();
 }

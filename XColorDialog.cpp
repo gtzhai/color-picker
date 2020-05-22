@@ -4,7 +4,7 @@
 XColorDialog::XColorDialog(QWidget *parent) :
     QDialog(parent)
 {
-    setFixedSize(552,274);
+    setFixedSize(800,480);
     SetupUI();
 
     QVector<QColor> rainbow;
@@ -22,8 +22,10 @@ void XColorDialog::SetupUI()
     hLayoutAll = new QHBoxLayout(this);
     hLayoutAll->setContentsMargins(8,10,8,10);
     colorSquare = new XColorSquare(this);
+    printf("setupui:%p\n", colorSquare);
     QSizePolicy sizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::MinimumExpanding);
-    colorSquare->setSizePolicy(sizePolicy);
+    //colorSquare->setSizePolicy(sizePolicy);
+    colorSquare->setFixedSize(100, 100);
     hLayoutAll->addWidget(colorSquare);
     verticalSlider = new XGradientSlider(this);
     verticalSlider->setOrientation(Qt::Vertical);
@@ -35,6 +37,7 @@ void XColorDialog::SetupUI()
     labelCurrent = new QLabel("  Current");
     colorPreview = new XColorPreview(this);
     colorPreview->setSizePolicy(sizePolicy);
+    //colorPreview->setFixedSize(100, 100);
     vLayoutPreview->addWidget(labelNew);
     vLayoutPreview->addWidget(colorPreview);
     vLayoutPreview->addWidget(labelCurrent);
@@ -195,7 +198,8 @@ void XColorDialog::SetConnect()
 QColor XColorDialog::color() const
 {
     QColor color = colorSquare->color();
-    color.setAlpha(qRound(sliderAlpha->value() * 2.55));
+    //color.setAlpha(qRound(sliderAlpha->value() * 2.55));
+    color.setAlpha(255);
     return color;
 }
 

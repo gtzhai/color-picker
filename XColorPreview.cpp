@@ -36,16 +36,16 @@ void XColorPreview::paintEvent(QPaintEvent *)
     painter.setRenderHint(QPainter::Antialiasing,true);
 
     painter.setPen(QPen(Qt::black, 1));
-    QSize rectSize(62,64);
+    QSize rectSize(100,100);
     painter.setBrush(back);
     painter.drawRect(1,1,rectSize.width(),rectSize.height());
 
-    int h = rectSize.height() / 2;
+    int h = rectSize.height() ;
     painter.setPen(Qt::NoPen);
     painter.setBrush(col);
     painter.drawRect(1,1,rectSize.width(),h);
-    painter.setBrush(colorPrevious);
-    painter.drawRect(1,h + 1,rectSize.width(),rectSize.height() - h);
+    /*painter.setBrush(colorPrevious);
+    painter.drawRect(1,h + 1,rectSize.width(),rectSize.height() - h);*/
 }
 
 

@@ -17,7 +17,6 @@ Dialog::Dialog(QWidget *parent) :
 //    XColorPreview *color = new XColorPreview(this);
 //    color->setColor(Qt::red);
 
-//    XColorDialog *dialog = new XColorDialog(this);
 
      sc = new XColorMaster(this);
      sc->setGeometry(10,10,25,25);

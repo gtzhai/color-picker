@@ -3,7 +3,7 @@
 #include <QMouseEvent>
 
 XColorMaster::XColorMaster(QWidget *parent) :
-    QWidget(parent),color(Qt::black), nWidth(25),colorDialog(new XColorDialog),
+    QWidget(parent),color(Qt::black), nWidth(100),colorDialog(new XColorDialog),
     background(Qt::darkGray, Qt::DiagCrossPattern)
 {
     colorDialog->hide();

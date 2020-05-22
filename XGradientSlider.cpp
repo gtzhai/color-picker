@@ -43,8 +43,37 @@ QLinearGradient XGradientSlider::gradient() const
     return lg;
 }
 
+static QRgb to565space(QRgb c){
+#if 0
+    int cr, cg, cb;
+    cr = qRed(c);
+    cg = qGreen(c);
+    cb = qBlue(c);
+    cr = cr & 0xf8;
+    cg = cg & 0xfc;
+    cb = cb & 0xf8;
+    c = qRgb(cr, cg, cb);
+#endif
+    return c;
+}
+
+static QColor to565space2(QColor c){
+#if 0
+    int cr, cg, cb;
+    cr = c.red();
+    cg = c.green();
+    cb = c.blue();
+    cr = cr & 0xf8;
+    cg = cg & 0xfc;
+    cb = cb & 0xf8;
+    c = QColor::fromRgb(cr, cg, cb);
+#endif
+    return c;
+}
+
 void XGradientSlider::setFirstColor(QColor c)
 {
+    c = to565space2(c);
 //    if ( col_list.empty() )
 //        col_list.push_back(c);
 //    else
@@ -56,7 +85,7 @@ void XGradientSlider::setFirstColor(QColor c)
 
 void XGradientSlider::setLastColor(QColor c)
 {
-
+    c = to565space2(c);
 //    if ( col_list.size() < 2 )
 //        col_list.push_back(c);
 //    else
